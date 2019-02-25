@@ -1,10 +1,1268 @@
-\documentclass[11pt]{tufte-handout}
+\documentclass[11pt, twocolumn]{article}
 
+%%% Packages
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{lmodern}
+\usepackage[document]{ragged2e}
+
+
+%%% Title
 \title{Java Knowledge Framework}
-\author{Jieyou Xu}
 
+
+%%% Settings
+\renewcommand\labelitemi{---}
+\newcommand{\versus}{\textit{v.}\ }
+\setlist{nosep}
+
+
+%%% Document
 \begin{document}
 \maketitle
+
+\section{Basics}
+
+\subsection{Object-Orientated Programming (OOP)}
+\subsubsection{OOP Basics}
+\begin{enumerate}
+	\item OOP vs Imperative Programming
+	\item Three Properties of OOP
+	\item Five Basic Rules of OOP
+\end{enumerate}
+
+\subsubsection{Platform Independence}
+\begin{enumerate}
+	\item How does Java achieve platform independence?
+	\item JVM language support
+\end{enumerate}
+
+\subsubsection{Pass-by-Value}
+\begin{enumerate}
+	\item Pass-by-value \versus pass-by-reference
+	\item Why does Java only have pass-by-value?
+\end{enumerate}
+
+\subsubsection{Encapsulation, Inheritance and Polymorphism}
+\begin{enumerate}
+	\item What is polymorphism, method overloading and overriding?
+	\item Java inheritance and implementation
+	\item Constructor method and default constructor
+	\item Class variables, instance variables and local variables
+	\item Instance variables and method scope
+\end{enumerate}
+
+\section{Java Basics}
+
+\subsection{Fundamental Data Types}
+\begin{enumerate}
+	\item The 8 fundamental data types
+	\item Integer-type value ranges
+	\item Floating-point numbers
+	\item Single-precision \versus double-precision floating-point numbers
+	\item Why shouldn't one represent money with floating-point numbers?
+\end{enumerate}
+
+\subsection{Auto-boxing}
+\begin{enumerate}
+	\item Boxed types (Wrappers), Primitive types and Auto-boxing
+	\item \texttt{Integer} caching mechanism
+\end{enumerate}
+
+\subsection{Strings}
+\begin{enumerate}
+	\item \texttt{String} immutability
+	\item \texttt{String.substring} implementation and differences in JDK6 vs JDK7
+	\item Overloading of \texttt{+} operator and ways of performing \texttt{String} concatenation
+	\item \texttt{String.valueOf} \versus \texttt{Integer.toString}
+	\item \texttt{switch} support for \texttt{String}
+	\item \texttt{String} Pool
+	\item Constant Pool
+		\subitem Run-Time Constant Pool
+		\subitem \texttt{Class} Constant Pool
+		\subitem \texttt{intern}
+\end{enumerate}
+
+\subsection{Java Keywords}
+\begin{enumerate}
+	\item The mechanism behind and usage of:
+	\subitem \texttt{transient}
+	\subitem \texttt{instanceof}
+	\subitem \texttt{final}
+	\subitem \texttt{static}
+	\subitem \texttt{volatile}
+	\subitem \texttt{synchronized}
+	\subitem \texttt{const}
+\end{enumerate}
+
+\subsection{Java Collections Framework}
+\begin{enumerate}
+	\item Usage of common \texttt{Collection} classes
+	\item \texttt{ArrayList} \versus \texttt{LinkedList} \versus \texttt{Vector}
+	\item \texttt{SynchronizedList} \versus \texttt{Vector}
+	\item \texttt{HashMap} \versus \texttt{HashTable} \versus \texttt{ConcurrentHashMap}
+	\item \texttt{Set} \versus \texttt{List}
+	\item How does \texttt{Set} guarantee \textit{uniqueness} of elements?
+	\item Java 8 \texttt{streams} API usage
+	\item Apache collections processing tool usage
+	\item Different implementations of \texttt{HashMap} across different versions of JDK and cause of such difference
+	\item \texttt{Collection} vs \texttt{Collections}
+	\item Gotchas of the \texttt{List} obtained when using \texttt{Arrays.asList}
+	\item \texttt{Enumeration} \versus \texttt{Iterator}
+	\item \texttt{fail-fast} \versus \texttt{fail-safe}
+	\item \texttt{CopyOnWriteArrayList} and \texttt{ConcurrentSkipListMap}
+\end{enumerate}
+
+\subsection{Enumerations}
+\begin{enumerate}
+	\item Usage of \texttt{Enum}s
+	\item \texttt{Enum} implementation
+	\item \texttt{Enum} and \textit{Singleton}
+	\item \texttt{Enum} class
+	\item Comparing \texttt{Enum}s
+	\item \texttt{switch} support for \texttt{Enums}
+	\item \texttt{Enum} serialization implementation
+	\item \texttt{Enum} thread safety issues
+\end{enumerate}
+
+\subsection{IO}
+\begin{enumerate}
+	\item \texttt{ByteStream}s, \texttt{CharacterStream}s, \texttt{InputStream}s, \texttt{OutputStream}s
+	\item Synchronous \versus Asynchronous
+	\item Blocking \versus Non-blocking
+	\item Linux IO models
+	\item \texttt{BIO} \versus \texttt{NIO} \versus \texttt{AIO}
+	\item Usage of \texttt{BIO}, \texttt{NIO}, \texttt{AIO}
+	\item \texttt{netty}
+\end{enumerate}
+
+\subsection{Reflection}
+\begin{enumerate}
+	\item \textit{Reflection} and \textit{Factory}
+	\item Usage of \textit{Reflection}
+	\item \texttt{Class} class
+	\item \texttt{java.lang.reflect.*} package
+\end{enumerate}
+
+\subsection{Dynamic Proxy}
+\begin{enumerate}
+	\item Dynamic proxy \versus	static proxy
+	\item Dynamic proxy and Reflection
+	\item Dynamic proxy implementations
+	\item Aspect-Orientated Programming (AOP)
+\end{enumerate}
+
+\subsection{Serialization}
+\begin{enumerate}
+	\item Serialization and deserialization
+	\item Why serialize?
+	\item Serialization mechanism
+	\item Serialization and \textit{Singleton}
+	\item \texttt{protobuf}
+	\item Why serialization isn't safe?
+\end{enumerate}
+
+\subsection{Annotations}
+\begin{enumerate}
+	\item Meta-Annotations
+	\item Custom Annotations
+	\item Common Annotations usage
+	\item Annotation with Reflection
+	\item \texttt{Spring} common Annotations
+\end{enumerate}
+
+\subsection{JMS}
+\begin{enumerate}
+	\item Java Message Service
+	\item \texttt{JMS} message delivery model
+\end{enumerate}
+
+\subsection{JMX}
+\begin{enumerate}
+	\item \texttt{java.lang.management.*}
+	\item \texttt{javax.management.*}
+\end{enumerate}
+
+\subsection{Generics}
+\begin{enumerate}
+	\item Generics and inheritance
+	\item Type erasure
+	\item Meaning of \texttt{K}, \texttt{T}, \texttt{V}, \texttt{E}, \texttt{?} and \texttt{object}
+	\item Usage of Generics
+	\item Constrained wildcard type \versus unconstrained wildcard type
+	\item Upper-bounded wildcard \texttt{<? extends T>} \versus Lower-bounded wildcard \texttt{<? super T>}
+	\item \texttt{List<Object>} \versus \texttt{List}
+	\item \texttt{List<?>} \versus \texttt{List<Object>}
+\end{enumerate}
+
+\subsection{Unit Testing}
+\begin{enumerate}
+	\item \texttt{JUnit}
+	\item \texttt{Mock}
+	\item \texttt{Mockito}
+	\item \texttt{h2}
+\end{enumerate}
+
+\subsection{Regular Expressions}
+\begin{enumerate}
+	\item \texttt{java.lang.util.regex.*}
+\end{enumerate}
+
+\subsection{Common Utilities Libraries}
+\begin{enumerate}
+	\item \texttt{commons.lang}
+	\item \texttt{commons.*}
+	\item \texttt{guava-libraries}
+	\item \texttt{netty}
+\end{enumerate}
+
+\subsection{API and SPI}
+\begin{enumerate}
+	\item \texttt{API}s
+	\item \texttt{API} \versus \texttt{SPI}
+	\item Defining \texttt{SPI}
+	\item \texttt{SPI} implementation
+\end{enumerate}
+
+\subsection{Exceptions}
+\begin{enumerate}
+	\item \texttt{Exception} type
+	\item Processing \texttt{Exception}s
+	\item Custom \texttt{Exception}s
+	\item \texttt{Error} and \texttt{Exception}
+	\item \texttt{Exception} chaining (propagation)
+	\item \texttt{try-with-resources}
+	\item Order of execution between \texttt{finally} and \texttt{return}
+\end{enumerate}
+
+\subsection{Time Processing}
+\begin{enumerate}
+	\item Timezones
+	\item Daylight Saving Time \versus Standard Time
+	\item Timestamps
+	\item Java \texttt{Datetime} API
+	\item \texttt{GMT}
+	\item \texttt{CET}, \texttt{UTC}, \texttt{GMT}, \texttt{CST} definitions and relationships
+	\item \texttt{SimpleDateFormat} thread safety issues
+	\item Java 8 Datetime processing
+	\item Obtaining US time from \texttt{GMT+8} timezones
+\end{enumerate}
+
+\subsection{Encoding}
+\begin{enumerate}
+	\item Unicode
+	\item Why is \texttt{UTF-8} needed even when \texttt{Unicode} is present?
+	\item \texttt{GBK} \versus \texttt{GB2312} \versus \texttt{GB18030}
+	\item \texttt{UTF8} \versus \texttt{UTF16} \versus \texttt{UTF32}
+	\item \texttt{URL} encoding/decoding
+	\item Big Endian \versus Little Endian
+	\item Solving garbled messages
+\end{enumerate}
+
+\subsection{Syntax Sugars}
+\begin{enumerate}
+	\item Java syntax sugar mechanics
+	\item Java de-sugaring
+	\item Syntax Sugars for:
+	\subitem \texttt{switch} supporting \texttt{String} and \texttt{Enum}
+	\subitem \texttt{Generics}
+	\subitem Auto-boxing and unboxing
+	\subitem \texttt{Varargs}
+	\subitem \texttt{Enum}s
+	\subitem Nested classes
+	\subitem Conditional compilation
+	\subitem Assertions
+	\subitem Literals
+	\subitem \texttt{for-each}
+	\subitem \texttt{try-with-resources}
+	\subitem \texttt{Lambda} expressions
+\end{enumerate}
+
+\subsection{Reading Source Code}
+\begin{enumerate}
+	\item Java classes:
+	\subitem \texttt{String}, \texttt{Integer}, \texttt{Long}, \texttt{Enum}
+	\subitem \texttt{BigDecimal}
+	\subitem \texttt{ThreadLocal}
+	\subitem \texttt{ClassLoader} and \texttt{URLClassLoader}
+	\subitem \texttt{ArrayList} and \texttt{LinkedList}
+	\subitem \texttt{HashMap}, \texttt{LinkedHashMap}, \texttt{TreeMap} and \texttt{ConcurrentHashMap}
+	\subitem \texttt{HashSet}, \texttt{LinkedHashSet} and \texttt{TreeSet}
+\end{enumerate}
+
+\subsection{Java Concurrency}
+
+\subsubsection{Concurrency and Parallel Programming}
+\begin{enumerate}
+	\item Concurrency
+	\item Parallelism
+	\item Concurrency \versus Parallelism
+\end{enumerate}
+
+\subsubsection{Threads \versus Processes}
+\begin{enumerate}
+	\item Thread implementation
+	\item Thread state
+	\item Thread Priority
+	\item Thread scheduling
+	\item Thread creation
+	\item Guard thread
+	\item Thread \versus Process
+\end{enumerate}
+
+\subsubsection{Thread Pool}
+\begin{enumerate}
+	\item Designing Thread Pool
+	\item \texttt{submit()} and \texttt{execute()}
+	\item Thread Pool mechanics
+	\item Why one cannot create thread pool via \texttt{Executors}
+\end{enumerate}
+
+\subsubsection{Thread Safety}
+\begin{enumerate}
+	\item Deadlocks
+	\item Diagnosing deadlocks
+	\item Thread safety and the memory model
+\end{enumerate}
+
+\subsubsection{Locks}
+\begin{enumerate}
+	\item CAS
+	\item Optimistic lock \versus pessimistic lock
+	\item Database locks
+	\item Distributed locks
+	\item Biased lock
+	\item Light-weight lock
+	\item Heavy-weight lock
+	\item \texttt{monitor}
+	\item Lock optimization
+	\item Lock elimination
+	\item Lock coarsening
+	\item Spin lock
+	\item Reentrant lock
+	\item Blocking lock
+	\item Deadlock
+\end{enumerate}
+
+\subsubsection{Deadlocks}
+\begin{enumerate}
+	\item What is a deadlock?
+	\item Deadlock elimination
+\end{enumerate}
+
+\subsubsection{\texttt{synchronized}}
+\begin{enumerate}
+	\item Implementation of \texttt{synchronized}
+	\item \texttt{synchronzied} and locks
+	\item Implementing thread-safe singleton without \texttt{synchronized}
+	\item \texttt{synchronized} and atomicity, visibility and orderedness
+\end{enumerate}
+
+\subsubsection{\texttt{volatile}}
+\begin{enumerate}
+	\item \texttt{happens-before}
+	\item Memory Barrier
+	\item Compiler instruction reshuffling and CPU instruction reshuffling
+	\item \texttt{volatile} implementation
+	\item \texttt{volatile} and atomicity, visibility and orderedness
+	\item Why is \texttt{volatile} needed when \texttt{synchronized} exists?
+\end{enumerate}
+
+\subsubsection{\texttt{sleep} and \texttt{wait}}
+
+\subsubsection{\texttt{wait} and \texttt{notify}}
+
+\subsubsection{\texttt{notify} and \texttt{notifyAll}}
+
+\subsubsection{ThreadLocal}
+
+\subsubsection{Solving the Consumer-Producer problem}
+
+\subsubsection{Java Concurrency Package}
+\begin{enumerate}
+	\item Java Concurrency and \texttt{java.util.concurrent}
+	\subitem \texttt{Thread}
+	\subitem \texttt{Runnable}
+	\subitem \texttt{Callable}
+	\subitem \texttt{ReentrantLock}
+	\subitem \texttt{ReentrantReadWriteLock}
+	\subitem \texttt{Atomic*}
+	\subitem \texttt{Semaphore}
+	\subitem \texttt{CountdownLatch}
+	\subitem \texttt{ConcurrentHashMap}
+	\subitem \texttt{Executors}
+\end{enumerate}
+
+\section{Underlying Fundamentals}
+
+\subsection{Java Virtual Machine (JVM)}
+
+\subsubsection{JVM Memory Structure}
+\begin{enumerate}
+	\item \texttt{class} file format
+	\item Run-time data sectors:
+	\subitem Heap memory
+	\subitem Stack memory
+	\subitem Method partition
+	\subitem Direct memory
+	\subitem Run-time constant pool
+	\subitem Heap memory \versus Stack memory
+	\item Must Java objects be allocated on the Stack?
+\end{enumerate}
+
+\subsubsection{Java Memory Model}
+\begin{enumerate}
+	\item Computer memory model
+	\item Cache coherency
+	\item \texttt{MESI} protocol
+	\item Visibility
+	\item Atomicity
+	\item Orderedness
+	\item \texttt{happens-before}
+	\item Memory Barrier
+	\item \texttt{synchronized}
+	\item \texttt{volatile}
+	\item \texttt{final}
+	\item Lock
+\end{enumerate}
+
+\subsubsection{Garbage Collection}
+\begin{enumerate}
+	\item Garbage Collection Algorithms
+	\subitem Mark-and-sweep
+	\subitem Reference counting
+	\subitem Copy
+	\subitem Mark-and-compact
+	\subitem Generational GC
+	\subitem Incremental GC
+	\item Garbage Collection Parameters
+	\subitem Determining survivors
+	\subitem GC: \texttt{CMS}, \texttt{G1}, \texttt{ZGC}, \texttt{Epsilon}
+\end{enumerate}
+
+\subsubsection{JVM Parameters and Optimization}
+\begin{enumerate}
+	\item \texttt{-Xmx}, \texttt{-Xmn}, \texttt{-Xms}, \texttt{-Xss}, \texttt{-XX:SurvivorRatio}, \texttt{-XX:PermSize}, \texttt{-XX:MaxPermSize}, \texttt{-XX:MaxTenruingThreshold}
+\end{enumerate}
+
+\subsubsection{Java Object Model}
+\begin{enumerate}
+	\item \texttt{oop-klass}
+	\item Object head
+\end{enumerate}
+
+\subsubsection{HotSpot}
+\begin{enumerate}
+	\item JIT compiler
+	\item Compiler optimizations
+\end{enumerate}
+
+\subsubsection{JVM Performance Monitoring and Debugging Tools}
+\begin{enumerate}
+	\item JPS, JStack, JMap, JStat, JConsole, JInfo, JHat, javap, btrace, TProfiler, Arthas
+\end{enumerate}
+
+\subsection{Class Loading Mechanism}
+\begin{enumerate}
+	\item \texttt{ClassLoader}
+	\item Class loading process
+	\item Parent Delegation Model (and breaking it)
+	\item Modularization (JBoss modules, osgi, jigsaw)
+\end{enumerate}
+
+\subsection{Compiling and decompiling}
+\begin{enumerate}
+	\item Compilation (front-end, back-end)
+	\item Decompilation
+	\item JIT
+	\item JIT optimizations (escape analysis, stack allocation, scalar replacement, lock optimization)
+	\item Compilation tooling: \texttt{javac}
+	\item Decompilation tooling: \texttt{javap}, \texttt{jad}, \texttt{CRF}
+\end{enumerate}
+
+\section{Intermediate}
+
+\subsection{Java Underlying Mechanics}
+\begin{enumerate}
+	\item Bytecode
+	\item \texttt{class} file format
+	\item CPU caching, L1, L2, L3 and pseudo-sharing
+	\item Tail recursion
+	\item Bit manipulations
+\end{enumerate}
+
+\subsection{Design Patterns and Principles}
+\begin{enumerate}
+	\item Class-level Principles:
+	\subitem Single-responsibility Principle
+	\subitem Open-Close Principle
+	\subitem Liskov-Substitutability Principle
+	\subitem Interface-Segregation Principle
+	\subitem Dependency-Inversion Principle
+	\subitem Composite-Reuse Principle
+\end{enumerate}
+
+\subsubsection{Design Patterns}
+\begin{enumerate}
+	\item Creational Patterns:
+	\subitem Singleton
+	\subitem Factory
+	\subitem Abstract Factory
+	\subitem Builder
+	\subitem Prototype
+	\item Structural Patterns:
+	\subitem Adapter
+	\subitem Bridge
+	\subitem Decorator
+	\subitem Composite
+	\subitem Facade
+	\subitem Flyweight
+	\subitem Proxy
+	\item Behavioral Patterns:
+	\subitem Template Method
+	\subitem Command
+	\subitem Iterator
+	\subitem Observer
+	\subitem Mediator
+	\subitem Memoir
+	\subitem Interpreter
+	\subitem State
+	\subitem Strategy
+	\subitem Chain of Responsibility
+	\subitem Visitor
+\end{enumerate}
+
+\subsubsection{Common Variants of Design Patterns}
+\begin{enumerate}
+	\item Singleton Variants:
+	\subitem Thread-unsafe singleton
+	\subitem Thread-safe singleton
+	\subitem Hungry singleton
+	\subitem Hungry singleton variant
+	\subitem Static inner class
+	\subitem Enumeration
+	\subitem Double validation lock
+\end{enumerate}
+
+\subsubsection{Implementing thread-safe singleton without \texttt{synchronized} and \texttt{lock}}
+
+\subsubsection{Implementing AOP}
+
+\subsubsection{Implementing IOC}
+
+\subsubsection{\texttt{nio} and \texttt{reactor} design patterns}
+
+\subsection{Networking}
+
+\subsubsection{TCP, UDP, HTTP, HTTPS Protocols}
+\begin{enumerate}
+	\item Triple Handshake + Quadruple Shutdown
+	\item Data flow control
+	\item Congestion management
+	\item OSI seven-layered model
+	\item TCP packet construction and deconstruction
+\end{enumerate}
+
+\subsubsection{HTTP/1.0 \versus HTTP/1.1 \versus HTTP/2.0}
+\begin{enumerate}
+	\item HTTP \texttt{get} \versus \texttt{post}
+	\item Status codes
+\end{enumerate}
+
+\subsubsection{HTTP/3.0}
+
+\subsubsection{Java RMI, Socket, HttpClient}
+
+\subsubsection{Cookies and Sessions}
+\begin{enumerate}
+	\item Implementing sessions without cookies
+\end{enumerate}
+
+\subsubsection{Implementing simple static file HTTP server}
+
+\subsubsection{Understand \texttt{nginx} and \texttt{apache} servers and build a corresponding server}
+
+\subsubsection{Implement FTP, SMTP protocols in Java}
+
+\subsubsection{Inter-Process Communication (IPC)}
+
+\subsubsection{CDN}
+
+\subsubsection{DNS}
+\begin{enumerate}
+	\item DNS
+	\item DNS Record type: A, CNAME, AAAA
+	\item DNS pollution
+	\item DNS hijacking
+	\item Public DNS: 114 DNS, Google DNS, OpenDNS
+\end{enumerate}
+
+\subsubsection{Reverse Proxy}
+\begin{enumerate}
+	\item Forward proxy \versus reverse proxy
+	\item Reverse proxy server
+\end{enumerate}
+
+\subsection{Frameworks}
+
+\subsubsection{Servlet}
+\begin{enumerate}
+	\item Life cycle
+	\item Thread safety
+	\item \texttt{filter} and \texttt{listener}
+	\item \texttt{web.xml} configurations
+\end{enumerate}
+
+\subsubsection{Hibernate}
+\begin{enumerate}
+	\item OR Mapping
+	\item Hibernate lazy loading
+	\item Hibernate caching
+	\item Hibernate \versus IBatis \versus MyBatis
+\end{enumerate}
+
+\subsubsection{Spring}
+\begin{enumerate}
+	\item \texttt{Bean} initialization
+	\item AOP mechanics
+	\item Spring IOC
+	\item Spring dependency injection methods (4)
+\end{enumerate}
+
+\subsubsection{Spring MVC}
+\begin{enumerate}
+	\item MVC
+	\item Spring MVC \versus Struts MVC
+\end{enumerate}
+
+\subsubsection{Spring Boot}
+\begin{enumerate}
+	\item Spring Boot 2.0
+	\item Startup dependency
+	\item Automatic configuration
+	\item Spring Boot starter mechanism and implementation
+\end{enumerate}
+
+\subsubsection{Spring Security}
+
+\subsubsection{Spring Cloud}
+\begin{enumerate}
+	\item Service discovery and registration:
+	\subitem Eureka
+	\subitem Zookeeper
+	\subitem Consul
+	\item Load balancing:
+	\subitem Feign
+	\subitem Spring Cloud LoadBalance
+	\item Service Configuration:
+	\subitem Spring Cloud Config
+	\item Service Throttling and Breaker
+	\subitem Hystrix
+	\item Service Chain Tracer:
+	\subitem Dapper
+	\item Service Gateway, Safety and Messages
+\end{enumerate}
+
+\subsection{Application Server}
+
+\subsubsection{JBoss}
+
+\subsubsection{Tomcat}
+
+\subsubsection{Jetty}
+
+\subsubsection{WebLogic}
+
+\subsection{Tooling}
+
+\subsubsection{git and svn}
+
+\subsubsection{maven and gradle}
+
+\subsubsection{IntelliJ IDEA}
+
+\section{Advanced}
+
+\subsection{Java}
+
+\subsubsection{Java 8}
+\begin{enumerate}
+	\item Lambdas
+	\item Stream API
+	\item Time API
+\end{enumerate}
+
+\subsubsection{Java 9}
+\begin{enumerate}
+	\item Jigsaw, JShell, Reactive Streams
+\end{enumerate}
+
+\subsubsection{Java 10}
+\begin{enumerate}
+	\item Local type inference
+	\item G1 parallel full GC
+	\item ThreadLocal handshake mechanism
+\end{enumerate}
+
+\subsubsection{Java 11}
+\begin{enumerate}
+	\item ZGC
+	\item Epsilon
+	\item Enhanced \texttt{var}
+\end{enumerate}
+
+\subsubsection{Spring 5}
+\begin{enumerate}
+	\item Reactive programming
+\end{enumerate}
+
+\subsubsection{Spring Boot 2.0}
+
+\subsubsection{HTTP/2}
+
+\subsubsection{HTTP/3}
+
+\subsection{Performance Optimization}
+\begin{enumerate}
+	\item Singleton
+	\item Future mode
+	\item Thread pool
+	\item Select Ready
+	\item Reduce context switch
+	\item Reduce lock granularity
+	\item Data compression
+	\item Result caching
+\end{enumerate}
+
+\subsection{Debugging}
+
+\subsubsection{Obtaining Dump}
+\begin{enumerate}
+	\item Thread dump
+	\item Memory dump
+	\item GC report
+\end{enumerate}
+
+\subsubsection{Dump Analysis}
+\begin{enumerate}
+	\item Deadlock analysis
+	\item Memory leak analysis
+\end{enumerate}
+
+\subsubsection{Dump Tooling}
+\begin{enumerate}
+	\item Dump tooling:
+	\subitem JStack
+	\subitem JStat
+	\subitem JMap
+	\subitem JHat
+	\subitem Arthas
+\end{enumerate}
+
+\subsubsection{Writing \texttt{OutOfMemory} and \texttt{StackOverflow} Programs}
+\begin{enumerate}
+	\item \texttt{HeapOutOfMemory}
+	\item \texttt{YoungOutOfMemory}
+	\item \texttt{MethodAreaOutOfMemory}
+	\item \texttt{ConstantPoolOutOfMemory}
+	\item \texttt{DirectMemoryOutOfMemory}
+	\item \texttt{StackOutOfMemory}
+	\item \texttt{StackOverflow}
+\end{enumerate}
+
+\subsubsection{Arthas}
+\begin{enumerate}
+	\item JVM-related
+	\item Class/ClassLoader-related
+	\item Monitor, watch, trace
+	\item Options,
+	\item Pipeline
+	\item Background async tasks
+\end{enumerate}
+
+\subsubsection{Common Problems}
+\begin{enumerate}
+	\item Memory leaks
+	\item Thread deadlock
+	\item ClassLoad conflict
+\end{enumerate}
+
+\subsection{Compilation}
+
+\subsubsection{Compilation and Decompilation}
+
+\subsubsection{Java Decompilation Tooling}
+\begin{enumerate}
+	\item Tools:
+	\subitem javap, jad, CRF
+\end{enumerate}
+
+\subsubsection{JIT Compiler}
+
+\subsubsection{Compilation Analysis}
+\begin{enumerate}
+	\item Lexical analysis
+	\item Syntactical analysis (parsing)
+	\subitem LL, recursive descent, LR
+	\item Semantical analysis
+	\item Run-time environment
+	\item Intermediate code generation
+	\item Code generation
+	\item Optimization
+\end{enumerate}
+
+\subsection{Operating System}
+
+\subsubsection{Linux Commands}
+
+\subsubsection{Inter-Process Communication (IPC)}
+
+\subsubsection{Process Synchronization}
+\begin{enumerate}
+	\item Producer-consumer problem
+	\item Dinning-philosopher problem
+	\item Reader-writer problem
+\end{enumerate}
+
+\subsubsection{Buffer Overflow}
+
+\subsubsection{Segmentation and Paging}
+
+\subsubsection{Virtual Memory and Main Memory}
+
+\subsubsection{Virtual Memory Management}
+
+\subsubsection{Page-Switch Algorithms}
+
+\subsection{Database}
+
+\subsubsection{MySQL Executing Engine}
+
+\subsubsection{MySQL Execution Plan}
+\begin{enumerate}
+	\item Checking plan
+	\item Optimization
+\end{enumerate}
+
+\subsubsection{Indexing}
+\begin{enumerate}
+	\item Hash index
+	\item B-tree index (B+ tree, Sum B tree, R tree)
+	\item Normal index
+	\item Unique index
+	\item Covering index
+	\item Leftmost prefix principle
+	\item Index condition pushdown (ICP)
+\end{enumerate}
+
+\subsubsection{SQL Optimization}
+
+\subsubsection{Database Task and Quarantine Level}
+\begin{enumerate}
+	\item Quarantine levels
+	\item Can tasks mimic locks?
+\end{enumerate}
+
+\subsubsection{Database Locks}
+\begin{enumerate}
+	\item Row lock
+	\item Table lock
+	\item Database lock
+\end{enumerate}
+
+\subsubsection{Connections}
+\begin{enumerate}
+	\item Internal connection
+	\item Left connection
+	\item Right connect
+\end{enumerate}
+
+\subsubsection{Database Main and Backup}
+
+\subsubsection{binlog}
+
+\subsubsection{redolog}
+
+\subsubsection{In-Memory Database}
+\begin{enumerate}
+	\item h2
+\end{enumerate}
+
+\subsubsection{Database Table Partitioning}
+
+\subsubsection{Command Query Separation}
+
+\subsubsection{NoSQL}
+\begin{enumerate}
+	\item Redis
+	\item Memcached
+\end{enumerate}
+
+\subsubsection{Database and Locks}
+\begin{enumerate}
+	\item Database lock and NoSQL to implement distributive lock
+\end{enumerate}
+
+\subsubsection{Performance Optimization}
+
+\subsubsection{Database Connection Pool}
+
+\subsection{Data Structures and Algorithms}
+
+\subsubsection{Simple Data Structures}
+\begin{enumerate}
+	\item Simple data structures:
+	\subitem Stack
+	\subitem Queue
+	\subitem LinkedList
+	\subitem Array
+	\subitem HashTable
+	\item Stack \versus Queue
+	\item Stack implementation (types of storage)
+\end{enumerate}
+
+\subsubsection{Trees}
+\begin{enumerate}
+	\item Binary tree
+	\item Dictionary tree
+	\item Balanced tree
+	\item Sort tree
+	\item B tree
+	\item B+ tree
+	\item R tree
+	\item Multipath tree
+	\item Red-black tree
+\end{enumerate}
+
+\subsubsection{Heap}
+\begin{enumerate}
+	\item Max heap
+	\item Min heap
+\end{enumerate}
+
+\subsubsection{Graph}
+\begin{enumerate}
+	\item Directed graph
+	\item Undirected graph
+	\item Topology
+\end{enumerate}
+
+\subsection{Sorting Algorithms}
+\begin{enumerate}
+	\item Stable sorting algorithms:
+	\subitem Bubble sort
+	\subitem Insertion sort
+	\subitem Cocktail sort
+	\subitem Bucket sort
+	\subitem Counting sort
+	\subitem Merge sort
+	\subitem In-place merge sort
+	\subitem BST sort
+	\subitem Pigeonhole sort
+	\subitem Radix sort
+	\subitem Dwarf sort
+	\subitem Library sort
+	\subitem Block sort
+	\item Unstable sorting algorithms:
+	\subitem Selection sort
+	\subitem Shellsort
+	\subitem Clover sort
+	\subitem Comb sort
+	\subitem Heapsort
+	\subitem Smooth sort
+	\subitem Quick sort
+	\subitem Introsort
+	\subitem Patience sort
+\end{enumerate}
+
+\subsubsection{Implementing Queue with Two Stacks}
+
+\subsubsection{Implementing Stack with Two Queues}
+
+\subsubsection{Depth-First Search and Breadth-First Search}
+
+\subsubsection{Permutations}
+
+\subsubsection{Greedy Algorithms}
+
+\subsubsection{KMP Algorithm}
+
+\subsubsection{Hashing Functions}
+
+\subsubsection{Big Data Processing}
+\begin{enumerate}
+	\item Divide and conquer
+	\item Hash projection
+	\item Heap sort
+	\item Double bucket division
+	\item Bloom filter
+	\item bitmap
+	\item Database index
+	\item MapReduce
+\end{enumerate}
+
+\subsection{Big Data}
+
+\subsubsection{\texttt{Zookeeper}}
+
+\subsubsection{\texttt{Solr}, \texttt{Lucene}, \texttt{ElasticSearch}}
+
+\subsubsection{\texttt{Storm}, Stream Calculation, \texttt{Spark}, \texttt{S4}}
+
+\subsubsection{\texttt{Hadoop}, Offline Calculation}
+\begin{enumerate}
+	\item \texttt{HDFS}
+	\item \texttt{MapReduce}
+\end{enumerate}
+
+\subsubsection{Distributed Log Collection \texttt{flume}, \texttt{kafka}, \texttt{logstash}}
+
+\subsubsection{Data mining \texttt{mahout}}
+
+\subsection{Network Safety}
+
+\subsubsection{XSS}
+\begin{enumerate}
+	\item XSS defense
+\end{enumerate}
+
+\subsubsection{CSRF}
+
+\subsubsection{Injection Attacks}
+\begin{enumerate}
+	\item SQL injection
+	\item XML injection
+	\item CRLF injection
+\end{enumerate}
+
+\subsubsection{File Upload Vulnerability}
+
+\subsubsection{Encryption and Decryption}
+\begin{enumerate}
+	\item Symmetric-key encryption
+	\item Asymmetric-key encryption
+	\item Hashing
+	\item Salted hashing
+	\item MD5
+	\item SHA-1
+	\item DES
+	\item AES
+	\item RSA
+	\item DSA
+	\item Rainbow table
+\end{enumerate}
+
+\subsubsection{DDoS}
+\begin{enumerate}
+	\item DoS attack
+	\item DDoS attack
+	\item \texttt{memcached} and DDoS
+	\item Reflectional DDoS
+\end{enumerate}
+
+\subsubsection{SSL, TLS, HTTPS}
+
+\subsubsection{OpenSSL Certificate}
+
+\section{Software Architecture}
+
+\subsection{Distributed Systems}
+Data integrity, Service Governance, Service Downgrade.
+
+\subsubsection{Distributed Tasks}
+\begin{enumerate}
+	\item 2PC
+	\item 3PC
+	\item CAP
+	\item BASE
+	\item Reliable Message Eventual Integrity
+	\item Max-Effort Notice
+	\item TCC
+\end{enumerate}
+
+\subsubsection{\texttt{Dubbo}}
+\begin{enumerate}
+	\item Service registration
+	\item Service discovery
+	\item Service governance
+\end{enumerate}
+
+\subsubsection{Distributed Database}
+\begin{enumerate}
+	\item Implementing Distributed Database
+	\item When is distributed database needed?
+	\item \texttt{mycat}
+	\item \texttt{otter}
+	\item \texttt{HBase}
+\end{enumerate}
+
+\subsubsection{Distributed File System}
+\begin{enumerate}
+	\item \texttt{mfs}
+	\item \texttt{fastdfs}
+\end{enumerate}
+
+\subsubsection{Distributed Caching}
+\begin{enumerate}
+	\item Cache integrity
+	\item Cache accuracy
+	\item Cache redundancy
+\end{enumerate}
+
+\subsubsection{Throttling and Downgrading}
+\begin{enumerate}
+	\item \texttt{Hystrix}
+	\item \texttt{Sentinal}
+\end{enumerate}
+
+\subsubsection{Algorithms}
+\begin{enumerate}
+	\item Consensus algorithm
+	\item Raft protocol
+	\item Paxos algorithm
+	\item Raft algorithm
+	\item Byzantine problem and algorithm, 2PC, 3PC
+\end{enumerate}
+
+\subsection{Microservices}
+SOA, Conway's Law.
+
+\subsubsection{SeviceMesh}
+\begin{enumerate}
+	\item sidecar
+\end{enumerate}
+
+\subsubsection{Docker and Kubernets}
+
+\subsubsection{Spring Boot}
+
+\subsubsection{Spring Cloud}
+
+\subsection{High Concurrency}
+
+\subsubsection{Database Table Partition}
+
+\subsubsection{CDN}
+
+\subsubsection{Message Queues}
+\begin{enumerate}
+	\item \texttt{ActiveMQ}
+\end{enumerate}
+
+\subsection{Monitoring}
+
+\subsubsection{Targets}
+\begin{enumerate}
+	\item CPU
+	\item Memory
+	\item Disk I/O
+	\item Network I/O
+\end{enumerate}
+
+\subsubsection{Methods}
+\begin{enumerate}
+	\item Process monitoring
+	\item Semantics monitoring
+	\item Machine resource monitoring
+	\item Data fluctuations
+\end{enumerate}
+
+\subsubsection{Data Collection}
+\begin{enumerate}
+	\item Logging
+	\item Implants
+\end{enumerate}
+
+\subsubsection{\texttt{Dapper}}
+
+\subsection{Load Balancing}
+
+\subsubsection{\texttt{tomcat} Load Balancing}
+
+\subsubsection{\texttt{Nginx} Load Balancing}
+
+\subsubsection{Four-tier Load Balancing}
+
+\subsubsection{Seven-tier Load Balancing}
+
+\subsection{DNS}
+
+\subsubsection{DNS Principles}
+
+\subsubsection{DNS Design}
+
+\subsection{CDN}
+
+\subsubsection{Data Integrity}
+
+\section{Extensions}
+
+\subsection{Cloud Computing}
+\begin{enumerate}
+	\item IaaS
+	\item SaaS
+	\item PaaS
+	\item Virtualization
+	\item openstack
+	\item Serverless
+\end{enumerate}
+
+\subsection{Search Engine}
+\begin{enumerate}
+	\item Solr
+	\item Lucene
+	\item Nutch
+	\item ElasticSearch
+\end{enumerate}
+
+\subsection{Permissions Management}
+\begin{enumerate}
+	\item Shiro
+\end{enumerate}
+
+\subsection{Blockchains}
+
+\subsubsection{Hashing}
+
+\subsubsection{Merkle Tree}
+
+\subsubsection{Public Key Cryptography}
+
+\subsubsection{Consensus Algorithm}
+
+\subsubsection{Byzantine Problem and Algorithm}
+
+\subsubsection{Message Authentication Code (MAC)}
+
+\subsubsection{Digital Signature}
+
+\subsubsection{Bitcoins}
+\begin{enumerate}
+	\item Mining
+	\item Consensus mechanism
+	\item Lightning network
+	\item Side chain
+	\item Hotspot problem
+	\item Branching
+\end{enumerate}
+
+\subsubsection{Ethereum}
+
+\subsubsection{Hyperlodger}
+
+\subsection{Artificial Intelligence}
+
+\subsubsection{Mathematical Foundations}
+
+\subsubsection{Machine Learning}
+
+\subsubsection{Neural Networks}
+
+\subsubsection{Deep Learning}
+
+\subsubsection{Applications}
+
+\subsubsection{TensorFlow, DeepLearning4J}
 
 
 \end{document}
